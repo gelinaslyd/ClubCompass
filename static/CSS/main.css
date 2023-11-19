@@ -1,15 +1,36 @@
+/*@keyframes flash {
+    0% { background-color: #ff0000;}
+    50% {background-color: #ffffff;}
+    100% {background-color: #ff0000;}  
+}
+
+.error {
+    animation: flash is infinite;
+
+}
+*/
+.error {
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 body, html {
     margin: 0;
     font-family: sans-serif;
-    background-color: lightcoral;
+    background: linear-gradient(90deg, rgba(244,164,164,1) 0%, rgba(240,128,128,1) 100%);
 }
+
 
 .content {
     margin: 0 auto;
     width: auto;
     font-family:'Courier New', Courier, monospace;
-    margin-left: 150px;
-    margin-right: 150px ;
+    margin-left: 125px;
+    margin-right: 125px ;
 }
 
 .search {
@@ -54,7 +75,7 @@ td {
 .button1 {
     background-color: #3264A8;
     border: none;
-    color: pink;
+    color: rgb(214, 250, 222);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -66,9 +87,15 @@ td {
     position: relative;
     top: 50%;
 }
+
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 .wrapper {
     text-align: center;
 }
+
 
 /*
 body {

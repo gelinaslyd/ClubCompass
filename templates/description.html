@@ -1,18 +1,96 @@
-{% extends 'base.html' %}
 
-{% block head %}
-<title>Position Description</title>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Description</title>
+    <style>
+        body {
+            background: linear-gradient(90deg, rgba(100,149,237,1) 0%, rgba(137,207,240,1) 100%);
+        }
+        .button1 {
+            background-color: #3264A8;
+            border: none;
+            color: rgb(214, 250, 222);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: fantasy;
+           font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            position: relative;
+            top: 50%;
+            left: 40%;
+        }
 
-{% block body %}
+        .button1:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .button2 {
+            background-color: #062044;
+            border: none;
+            color: rgb(255, 255, 255);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: cursive;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            position: relative;
+            top: 50%;
+            left: 70%;
+   
+        }
+        .button-container {
+            display: flex;
+        }
+        .content {
+            margin: 0 auto;
+            width: auto;
+            font-family:'Courier New', Courier, monospace;
+            margin-left: 100px;
+            margin-right: 100px ;
+        }
+        
+        
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="{{ url_for('login')}}"><button class="button2">Change Description</button></a>
+    </div> 
+   
+
 <div class='content'>
-    <h1 style="text-align: center;">View Description</h1>
+    <h1 style="text-align: center;">Position Description</h1>
+    <br>
+    <h2 style="text-align:center;">VP External - Chem-E Cow</h2>
+    <p style="text-align: center;">We are seeking an enthusiastic and dynamic individual to join our team as the Vice President External for Chem-E Cow. In this leadership role, you will be responsible for establishing and maintaining strong external relationships with industry partners, academic institutions, and relevant organizations. Your primary goal is to enhance Chem-E Cow's presence and reputation within the chemical engineering community. Key responsibilities include coordinating external events, fostering collaborations, and representing Chem-E Cow at industry conferences and networking functions. The ideal candidate should possess excellent communication and networking skills, a passion for chemical engineering, and a strong commitment to advancing Chem-E Cow's external connections. 
+        <br>
+        Join us in shaping the external landscape for Chem-E Cow and contributing to the growth and success of our organization.</p> 
+    <br>
+    <h2 style="text-align:center;">Financial Officer - EUS</h2>
+    <p style="text-align: center;">As Financial Officer for the Engineering Undergraduate Society (EUS), manage day-to-day financial operations, ensuring compliance with policies and regulations. Collaborate on budget planning, monitor expenses, and present accurate financial reports to the executive team. Oversee transactions, negotiate with vendors, and coordinate external audits. Explore funding opportunities and contribute financial insights to long-term planning. Bring a bachelor's degree in finance, accounting, or related field, coupled with proven financial management experience. Join us in shaping a robust financial strategy for the EUS.</p> 
+    <br>
+    <h2 style="text-align:center;">Manager - Blues Pub</h2>
+    <p style="text-align: center;">Take the lead as the Blues Pub Manager, overseeing the dynamic operation of our vibrant pub space. Manage day-to-day activities, including staff coordination, event planning, and customer service. With a keen eye for detail, ensure a welcoming and enjoyable atmosphere for patrons. Coordinate entertainment events, promotions, and maintain inventory levels. Collaborate with vendors, handle financial transactions, and enforce safety protocols. Bring strong leadership, organizational skills, and a passion for creating memorable pub experiences. Join us in shaping the success and atmosphere of our Blues Pub.</p> 
+    <br>
+    <h2 style="text-align:center;">Vice President Internal - McGill Rocket Club</h2>
+    <p style="text-align: center;">We are seeking a dynamic and enthusiastic individual to join McGill Rocket Club as the Vice President Internal. In this key leadership role, you will be responsible for fostering a positive and collaborative internal environment within the organization. Your primary duties include overseeing member engagement initiatives, organizing internal events, and ensuring effective communication among team members. As a crucial member of the executive team, you will work closely with fellow leaders to articulate and execute the club's vision and goals. The ideal candidate will possess strong organizational and interpersonal skills, a passion for rocketry, and a commitment to promoting a supportive team culture. Join us in shaping the future of McGill Rocket Club and contributing to the exciting world of rocket science!</p> 
+    <br>
 
-    <div class="form">
-        <form action="/position/{{task.id}}" method="VIEW">
-            <input type="text" name="content" id="content" value="{{task.content}}">
-            <input type="submit" value="View">
-        </form>
+    <div class="wrapper">
+        <a href="/"><button class="button1">Back to Home</button></a>
     </div>
 </div>
-{% endblock %}
+</body>
+</html>
+ 

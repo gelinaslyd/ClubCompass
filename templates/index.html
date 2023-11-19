@@ -11,13 +11,13 @@
     <h1 style="text-align: center;">ClubCompass</h1>
     {% if tasks|length < 1 %}
     <h4 style="text-align: center;"> There are no available positions. Create one below! </h4>
-    <div class='search'>
-        <input type="text" placeholder ="Search...">
-    </div>
     {% else %}
+
    
     <table>
-    
+        <div class='search'>
+            <input type="text" placeholder ="Search...">
+        </div>
         <tr>
             <th>Position</th>  
             <th>Date Added</th>
@@ -32,7 +32,7 @@
                     <br>
                     <a href="/update/{{ task.id }}">Update</a>
                     <br>
-                    <a href="/position/{{ task.id }}">View Description</a>
+                    <a href="/description/{{ task.id }}">View Description</a>
                 </td>
             </tr>
         {% endfor %}
@@ -43,9 +43,12 @@
     <form action="/" method="POST">
         <input type="text" name="content" id="content">
         <align="right">
-            <input type="submit" value="Add Task" >
+            <input type="submit" value="Add Posting" >
         </p>
     </form>
+    <br>
+    <br>
+    <p style="text-align: center;">Built in 1993.</p>
 </div>
 {% endblock %}
  
