@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy 
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
@@ -23,16 +23,17 @@ def index():
 
         if not task_content.strip():
             error_message = 'Task content cannot be blank'
-            return error_message
+            return render_template('error.html', error_message=error_message)
         else:
-                new_task = Todo(content=task_content)
+            new_task = Todo(content=task_content)
 
         try: 
             db.session.add(new_task)
             db.session.commit()
             return redirect('/')
         except: 
-            return 'There was an issue adding your posting'
+            error_message = 'There was an issue adding your posting'
+            return render_template('error.html', error_message=error_message)
 
     else:
         tasks = Todo.query.order_by(Todo.date_created).all()
@@ -54,7 +55,14 @@ def update(id):
     task = Todo.query.get_or_404(id)
 
     if request.method == 'POST':
-        task.content = request.form['content']
+        new_content = request.form['content'].strip()
+
+        if not new_content:
+            return render_template('error.html')
+
+
+        task.content = new_content
+
 
         try:
             db.session.commit()
@@ -66,10 +74,11 @@ def update(id):
 
 @app.route('/description/<int:id>')
 def description(id):
-    if request.method == 'GET':
-        return redirect(url_for('index'))
-    
+    return render_template('description.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 if __name__== "__main__":
     app.run(debug=True)
